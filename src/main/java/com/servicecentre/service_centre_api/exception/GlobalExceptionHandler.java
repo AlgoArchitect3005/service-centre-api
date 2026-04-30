@@ -42,4 +42,15 @@ public class GlobalExceptionHandler {
                 "message", "Something went wrong"
         ));
     }
+
+    @ExceptionHandler(InsufficientStockException.class)
+public ResponseEntity<Map<String, Object>> handleInsufficientStock(
+        InsufficientStockException ex) {
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of(
+            "timestamp", LocalDateTime.now().toString(),
+            "status", 400,
+            "error", "Bad Request",
+            "message", ex.getMessage()
+    ));
+}
 }
