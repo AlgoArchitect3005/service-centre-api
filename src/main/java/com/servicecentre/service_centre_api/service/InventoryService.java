@@ -57,4 +57,11 @@ public class InventoryService {
         item.setQuantity(item.getQuantity() - quantity);
         return inventoryRepository.save(item);
     }
+
+    //get item by id
+    public Inventory getItemById(Long id) {
+        return inventoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Item not found with id: " + id));
+    }
 }
