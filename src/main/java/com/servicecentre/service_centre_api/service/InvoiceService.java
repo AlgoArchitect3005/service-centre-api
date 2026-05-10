@@ -31,13 +31,13 @@ public class InvoiceService {
                     "Invoice already exists for job card: " + jobCardId);
         }
 
-        // Parts total calculate karo
+        // Parts total calculate 
         List<JobPart> parts = jobPartRepository.findByJobCard(jobCard);
         BigDecimal partsTotal = parts.stream()
                 .map(JobPart::getSubtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        // Invoice build karo
+        // Invoice build 
         Invoice invoice = Invoice.builder()
                 .jobCard(jobCard)
                 .serviceCharge(serviceCharge)
