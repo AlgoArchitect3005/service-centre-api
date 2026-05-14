@@ -38,6 +38,7 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    // Get user by id
     public User getUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
