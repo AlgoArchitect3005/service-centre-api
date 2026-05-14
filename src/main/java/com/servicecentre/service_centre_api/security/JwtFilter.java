@@ -1,6 +1,5 @@
 package com.servicecentre.service_centre_api.security;
 
-import com.servicecentre.service_centre_api.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +18,6 @@ import java.util.List;
 public class JwtFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
-    private final UserRepository userRepository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
